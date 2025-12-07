@@ -29,6 +29,7 @@ public class LineComparison {
         System.out.println("\nLength of Line 1 = " + line1Length);
         System.out.println("Length of Line 2 = " + line2Length);
 
+        //equality check for lines
         boolean equal = areLinesEqual(line1Length, line2Length);
         if(equal)
         {
@@ -38,6 +39,10 @@ public class LineComparison {
         {
             System.out.println("Both lines are not equal");
         }
+
+        //compare both lines
+        int compareResult = compareLines(line1Length, line2Length);
+        System.out.println("Comparison Result: " + relation(compareResult));
     }
 
     // UC1: calculate line length
@@ -50,5 +55,16 @@ public class LineComparison {
     //UC2: equality check
     private static boolean areLinesEqual(double l1, double l2) {
         return Double.valueOf(l1).equals(Double.valueOf(l2));
+    }
+
+    //UC3: comapre lines
+    private static int compareLines(double l1, double l2) {
+        return Double.compare(l1, l2);
+    }
+
+    private static String relation(int result) {
+        if (result == 0) return "Both lines are equal";
+        if (result < 0) return "Line 1 is shorter than Line 2";
+        return "Line 1 is longer than Line 2";
     }
 }
