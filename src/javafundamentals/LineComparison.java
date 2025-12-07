@@ -28,12 +28,27 @@ public class LineComparison {
 
         System.out.println("\nLength of Line 1 = " + line1Length);
         System.out.println("Length of Line 2 = " + line2Length);
+
+        boolean equal = areLinesEqual(line1Length, line2Length);
+        if(equal)
+        {
+            System.out.println("Both lines are equal");
+        }
+        else
+        {
+            System.out.println("Both lines are not equal");
+        }
     }
 
-    // UC1: Length = sqrt((x2-x1)^2 + (y2-y1)^2)
+    // UC1: calculate line length
     private static double calculateLength(double x1, double y1, double x2, double y2) {
         double dx = x2 - x1;
         double dy = y2 - y1;
         return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    //UC2: equality check
+    private static boolean areLinesEqual(double l1, double l2) {
+        return Double.valueOf(l1).equals(Double.valueOf(l2));
     }
 }
